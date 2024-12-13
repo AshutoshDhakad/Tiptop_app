@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
              const Padding(padding: EdgeInsets.only(left: 210),
-              child: Row(gi
+              child: Row(
                  children: [
                 Text("Forget Password"),
                ]

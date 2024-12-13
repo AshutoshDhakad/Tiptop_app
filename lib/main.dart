@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tiptop_app/SplashScreen.dart';
+import 'package:tiptop_app/onboarding1.dart';
 import 'Loginpage.dart';
+import 'onboarding2.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: SplashScreen()
+
     );
   }
 }
