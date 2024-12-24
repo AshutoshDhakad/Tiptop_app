@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiptop_app/SplashScreen.dart';
+import 'package:tiptop_app/forget_password.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -10,7 +10,6 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
 
   String _email = '';
-  String _password = '';
   bool _obscureText = true;
 
   @override
@@ -19,9 +18,8 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: const Text(''),
       ),
-
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(15.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -67,7 +65,9 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: const InputDecoration(
                     labelText: 'Enter email id',
                     border: OutlineInputBorder(),
+                    // errorText: _validate ? "Value Can't Be Empty" : null,
                   ),
+
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter your email';
@@ -85,6 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: InputDecoration(
                     labelText: 'Password',
                     border: const OutlineInputBorder(),
+
                     suffixIcon: IconButton(
                       icon: Icon(
                         _obscureText ? Icons.visibility : Icons.visibility_off,
@@ -98,26 +99,41 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return 'Please enter your password';
+                      return "Password cannot be empty";
+                    } else if (value.length < 6) {
+                      return "Password length should be atleast 6";
                     }
                     return null;
                   },
-                  onSaved: (value) => _password = value!,
-
                 ),
               ),
-             const Padding(padding: EdgeInsets.only(left: 210),
-              child: Row(
-                 children: [
-                Text("Forget Password"),
-               ]
-              ),
+             Padding(padding: const EdgeInsets.only(left: 190, ),
+
+               child: TextButton(
+                 style: TextButton.styleFrom(
+
+                 ),
+                 onPressed: () {
+                   Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => ForgetPassword()),
+                   );
+                 },
+                 child: const Text(
+                   "Forget Password?",
+                   style: TextStyle(
+                     color: Colors.black,
+                     fontWeight: FontWeight.bold,
+                   ),
+                 ),
+               ),
+
              ),
 
               Padding(
-                padding: const EdgeInsets.only(top: 120),
+                padding: const EdgeInsets.only(top: 50),
                 child: Container(
-                  width: 380,
+                   width: 380,
                   height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10)
@@ -133,14 +149,141 @@ class _LoginPageState extends State<LoginPage> {
                             )
                         )
                     ),
-                    onPressed: () {},
-                    child: Text(
-                        "sign up".toUpperCase(),
-                        style:  const TextStyle(fontSize: 14)
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                        showDialog(
+                            context: context,
+                            builder: (ctxt) => AlertDialog(
+                              title:  Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width: 120,
+                                    height: 120,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage('assets/images/right_tick.png', ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  const Center(
+                                    child: Text.rich(
+                                      const TextSpan(
+                                        text: "Sign in Successful !",
+                                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black ),
+                                        children: <InlineSpan>[
+                                          TextSpan(
+                                            text: " \n You,re logged in. Let's get Started!",
+                                            style: TextStyle(fontSize: 10,color: Colors.black),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(padding: const EdgeInsets.only(top: 20),
+                                    child: Container(
+                                        width: 380,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(0)
+                                        ),
+                                    child: ElevatedButton(
+                                      onPressed: () {
+
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.black,
+                                    ),
+                                      child: const Text('Continue',
+                                        style: TextStyle(
+                                            color: Colors.white),),
+                                  )
+                                  )
+                                  )
+                                ],
+                              ),
+                            )
+                        );}
+                      },
+                    child: const Text(
+                        "Sign In",
+                        style:  TextStyle(fontSize: 14)
                     ),
                   ),
                 ),
               ),
+              const Padding(padding: EdgeInsets.only(top: 40,left: 45),
+              child: Text(
+                  "____________  or sign in with  ____________",
+                style: TextStyle(color:
+                Colors.black, fontSize: 12),),
+              ),
+              Padding(padding: const EdgeInsets.only(top: 20, left: 55),
+                child: Row(
+                  children: [
+                    Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: const DecorationImage(
+                        image: AssetImage('assets/images/google-logo.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+
+                    Padding(padding: const EdgeInsets.only( left: 20),
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        image: const DecorationImage(
+                          image: AssetImage('assets/images/facebook-logo.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    ),
+                    Padding(padding: const EdgeInsets.only(left: 20),
+                    
+                    child: Card(
+                      
+                      elevation: 3,
+                      child: Container(
+                        
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: const DecorationImage(
+                            image: AssetImage('assets/images/Apple-logo.png'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ),
+                  ],
+                ),
+              ),
+              const Padding(padding: EdgeInsets.only(top: 120),
+                child:  Center(
+                  child: Text.rich(
+                   const TextSpan(
+                      text: "Don't have an account?",
+                      children: <InlineSpan>[
+                        TextSpan(
+                          text: ' Register',
+                          style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.orange),
+                        ),
+                      ],
+                  ),
+              ),
+                ),
+              )
             ],
           ),
         ),
@@ -148,3 +291,4 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+

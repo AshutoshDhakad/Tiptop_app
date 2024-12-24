@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:tiptop_app/select_language.dart';
 import 'onboarding3.dart';
 
 
@@ -9,8 +10,7 @@ class OnBoarding2 extends StatefulWidget {
 }
 
 class _OnBoarding2State extends State<OnBoarding2> {
-  final PageController _pageController = PageController();
-  int _currentPage =1;
+  final PageController _pageController = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
 
@@ -18,7 +18,6 @@ class _OnBoarding2State extends State<OnBoarding2> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Background Image
           Container(
             width: 400,
             height: 380,
@@ -90,16 +89,14 @@ class _OnBoarding2State extends State<OnBoarding2> {
                     ],
                   ),
                 ),
-                Container(
-
-                child: Padding(padding: EdgeInsets.only(top:80, right: 260),
+                Padding(padding: const EdgeInsets.only(top:80, right: 260),
                   child: Positioned(
                     width: 34,
                     height: 34,
                     child: Center(
                       child: SmoothPageIndicator( controller: _pageController,
                         count: 3, // Number of pages
-                        effect: const WormEffect(
+                        effect: const ExpandingDotsEffect(
                           activeDotColor: Colors.black,
                           dotColor: Colors.grey,
                           dotHeight: 8,
@@ -109,14 +106,13 @@ class _OnBoarding2State extends State<OnBoarding2> {
                     ),
                   ),
                 ),
-
-                ),
                 Padding(padding: const EdgeInsets.only(left: 10),
                   child: TextButton(
                     style: ButtonStyle(
                       foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
                     ),
-                    onPressed: () { },
+                    onPressed: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) =>  SelectLanguage())),
                     child: const Text('Skip'),
                   ),
                 ),

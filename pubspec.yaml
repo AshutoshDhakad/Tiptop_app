@@ -21,6 +21,7 @@ version: 1.0.0+1
 environment:
   sdk: ^3.5.4
 
+
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
@@ -30,7 +31,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  pinput: ^1.2.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -67,6 +68,12 @@ flutter:
        - assets/images/img_4.png
        - assets/images/img_5.png
        - assets/images/img_6.png
+       - assets/images/img_7.png
+       - assets/images/img_8.png
+       - assets/images/Apple-logo.png
+       - assets/images/facebook-logo.png
+       - assets/images/google-logo.png
+       - assets/images/right_tick.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

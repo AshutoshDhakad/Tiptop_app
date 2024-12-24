@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:tiptop_app/Loginpage.dart';
-import 'onboarding3.dart';
+import 'package:tiptop_app/select_language.dart';
 
 
 class OnBoarding3 extends StatefulWidget {
@@ -10,8 +9,7 @@ class OnBoarding3 extends StatefulWidget {
 }
 
 class _OnBoarding3State extends State<OnBoarding3> {
-  final PageController _pageController = PageController();
-  int _currentPage =1;
+  final PageController _pageController = PageController(initialPage: 1);
   @override
   Widget build(BuildContext context) {
 
@@ -19,7 +17,6 @@ class _OnBoarding3State extends State<OnBoarding3> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Background Image
           Container(
             width: 400,
             height: 380,
@@ -30,7 +27,7 @@ class _OnBoarding3State extends State<OnBoarding3> {
               ),
             ),
           ),
-          // Overlay
+
           Container(
             color: Colors.black.withOpacity(0.2),
           ),
@@ -84,57 +81,47 @@ class _OnBoarding3State extends State<OnBoarding3> {
                     ],
                   ),
                 ),
-                Container(
 
-                  child: Padding(padding: EdgeInsets.only(top:80, right: 260),
-                    child: Positioned(
-                      width: 34,
-                      height: 34,
-                      child: Center(
-                        child: SmoothPageIndicator( controller: _pageController,
-                          count: 3, // Number of pages
-                          effect: const WormEffect(
-                            activeDotColor: Colors.black,
-                            dotColor: Colors.grey,
-                            dotHeight: 8,
-                            dotWidth: 8,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
 
-                ),
-                Padding(padding: const EdgeInsets.only(left: 10),
-                  child: TextButton(
-                    style: ButtonStyle(
-                      foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
-                    ),
-                    onPressed: () { },
-                    child: const Text('Skip'),
-                  ),
+                const SizedBox(
+                  height: 30,
                 ),
 
-                Padding(padding: const EdgeInsets.only(left: 300, ),
-                  child: CircleAvatar(
-                    radius: 20,
-                    backgroundColor: Colors.black,
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
+                Padding(
+                  padding: const EdgeInsets.only(top: 140, left: 12),
+                  child: Container(
+                    width: 340,
+                    height: 45,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                          foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+                          backgroundColor: WidgetStateProperty.all<Color>(Colors.black),
+                          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+
+                              )
+                          )
                       ),
                       onPressed: () => Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) =>  LoginPage())),
+                          .push(MaterialPageRoute(builder: (context) =>  SelectLanguage())),
+                      child: Text(
+                          "Get Started".toUpperCase(),
+                          style:  const TextStyle(fontSize: 14)
+                      ),
                     ),
+                  ),
+                ),
+                  ]
                   ),
                 )
 
               ],
             ),
-          ),
-        ],
-      ),
-    );
+          );
+
   }
 }
