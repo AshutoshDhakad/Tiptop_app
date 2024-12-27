@@ -21,10 +21,11 @@ class _OnBoardingState extends State<OnBoarding> {
         backgroundColor: Colors.white,
       body: Stack(
         children: [
+
           // Background Image
           Container(
             width: screenWidth,
-            height: screenHeight * 0.4,
+            height: screenHeight * 0.50,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/img_1.png'),
@@ -34,111 +35,121 @@ class _OnBoardingState extends State<OnBoarding> {
           ),
           // Overlay
           Container(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.black.withOpacity(0.1),
           ),
           // Content
-          SingleChildScrollView(
-            child: Padding(
+             Padding(
               padding: const EdgeInsets.all(20.0),
+
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: screenHeight * 0.8,
-                    width: screenWidth * 0.8,
+                    height: screenHeight * 0.55,
+                    width: screenWidth * 0.83,
                     child: Image.asset('assets/images/img_2.png'),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 1),
                    Row(
                     children: [
                       Text(
                         "Choose Favorite",
-                        style: TextStyle(
-                          fontSize: screenWidth * 0.05,
+                        style: TextStyle( fontFamily: 'poppins',
+                          fontSize: screenWidth * 0.06,
                           color: Colors.black,
                         ),
                       ),
                       SizedBox(width: 4),
                       Text(
-                        "Leagues",
-                        style: TextStyle(
+                        "Leagues,",
+                        style: TextStyle( fontFamily: 'poppins',
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: screenWidth * 0.06,
                           color: Colors.black,
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 5),
-                  const Text(
+                  const SizedBox(height: 3),
+                  Text(
                     "Sports Categories & Teams",
-                    style: TextStyle(
-                      fontSize: 20,
+                    style: TextStyle( fontFamily: 'poppins',
+                      fontSize: screenWidth * 0.06,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                   ),
-                  const SizedBox(height: 30),
-                  const Text(
-                    'Loren Ipsum is simply dummy text of the',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 12,
-                    ),
-                  ),
-                  const Text(
-                    'print and typesetting industry',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 12,
-                    ),
-                  ),
-                  const SizedBox(height: 80),
-                  Center(
-                    child: SmoothPageIndicator(
-                      controller: _pageController,
-                      count: 3,
-                      effect: const ExpandingDotsEffect(
-                        activeDotColor: Colors.black,
-                        dotColor: Colors.grey,
-                        dotHeight: 8,
-                        dotWidth: 8,
-                      ),
-                    ),
-                  ),
                   const SizedBox(height: 20),
-                  TextButton(
-                    style: ButtonStyle(
-                      foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
+                  Text(
+                    'Loren Ipsum is simply dummy text of the',
+                    style: TextStyle( fontFamily: 'poppins',
+                      color: Colors.black,
+                      fontSize: screenWidth * 0.03,
                     ),
-                    onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => SelectLanguage()),
-                    ),
-                    child: const Text('Skip'),
                   ),
-                  const SizedBox(
-                      height: 20),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: CircleAvatar(
-                      radius: 20,
-                      backgroundColor: Colors.black,
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.arrow_forward,
-                          color: Colors.white,
-                        ),
-                        onPressed: () => Navigator.of(context).push(
+                  Text(
+                    'print and typesetting industry',
+                    style: TextStyle( fontFamily: 'poppins',
+                      color: Colors.black,
+                      fontSize: screenWidth * 0.03,
+                    ),
+                  ),
+                  Padding(padding: EdgeInsets.only( top: 140, ),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Center(
+                            child: SmoothPageIndicator(
+                              controller: _pageController,
+                              count: 3,
+                              effect: const ExpandingDotsEffect(
+                                activeDotColor: Colors.black,
+                                dotColor: Colors.grey,
+                                dotHeight: 8,
+                                dotWidth: 8,
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            style: ButtonStyle(
+                              foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
+                            ),
+                            onPressed: () => Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => SelectLanguage()),
+                            ),
+                            child: const Text('Skip'
+                              , style: TextStyle( fontFamily: 'poppins',),)
+                            ,
+                          ),
+                        ],
+                      ),
+                      Padding(padding: EdgeInsets.only(left: 210),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Colors.black,
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                            ),
+                            onPressed: () => Navigator.of(context).push(
 
-                          MaterialPageRoute(builder: (context) => OnBoarding2()),
+                              MaterialPageRoute(builder: (context) => OnBoarding2()
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      ),
+                    ],
+                  ),
                   ),
                 ],
               ),
             ),
-          ),
         ],
       ),
     );

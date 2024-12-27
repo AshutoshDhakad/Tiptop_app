@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tiptop_app/registration_screen.dart';
 
 class CreateNewPassword extends StatefulWidget {
   @override
   _CreateNewPasswordState createState() => _CreateNewPasswordState();
 }
 class _CreateNewPasswordState extends State<CreateNewPassword> {
+  bool PasswordObsecured = true;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -41,11 +43,18 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                 ),
                 Padding(padding: EdgeInsets.only(top: 40),
                   child: TextFormField(
+                    obscureText: PasswordObsecured,
                     decoration: InputDecoration(
                       labelText: 'Password',
                       border: const OutlineInputBorder(),
-                      suffixIcon: IconButton(icon: const Icon(Icons.visibility_off),
-                        onPressed: () {},
+                      suffixIcon: IconButton(onPressed: () {
+                        setState(() {
+                          PasswordObsecured = !PasswordObsecured;
+                        });
+                      },
+                        icon: Icon(
+                            PasswordObsecured ?
+                            Icons.visibility_off_outlined : Icons.visibility_outlined ),
                     ),
                   ),
                     // validator: (value) {
@@ -56,20 +65,25 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                     // },
                   ),
                 ),
-                         Padding(padding: EdgeInsets.only(top: 20),
-                              child: TextFormField(
+                Padding(padding: EdgeInsets.only(top: 20),
+                  child: TextFormField(
+                    obscureText: PasswordObsecured,
+                    decoration: InputDecoration(
+                      labelText: 'Confirm Password',
+                      border: const OutlineInputBorder(),
+                      suffixIcon: IconButton(onPressed: () {
+                        setState(() {
+                          PasswordObsecured = !PasswordObsecured;
+                        });
+                      },
+                        icon: Icon(
+                            PasswordObsecured ?
+                            Icons.visibility_off_outlined : Icons.visibility_outlined ),
+                      ),
+                    ),
 
-                                decoration: InputDecoration(
-                                 labelText: 'Confirm Password',
-                                 border: const OutlineInputBorder(),
-                                  suffixIcon: IconButton(icon: const Icon(Icons.visibility_off),
-                                    onPressed: () {
-                                setState(() {});
-                                    },
-                                  ),
-                                 ),
-                              ),
-                         ),
+                  ),
+                ),
 
                   Padding(
                   padding: const EdgeInsets.only(top: 40),
@@ -128,27 +142,24 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                                 borderRadius: BorderRadius.circular(0)
                                             ),
                                             child: ElevatedButton(
-                                              onPressed: () {
 
-                                              },
                                               style: ElevatedButton.styleFrom(
                                                 backgroundColor: Colors.black,
                                               ),
+                                              onPressed: () {  },
                                               child: const Text('Back to login',
                                                 style: TextStyle(
 
                                                     color: Colors.white),),
                                             ),
-                                        ),
-                                    ),
+                                        )
+                                    )
                                   ],
                                 ),
                               )
                           );
                           },
-                      // onPressed: () => Navigator.of(context)
-                      //     .push(MaterialPageRoute(builder: (context) => VerifyAccount())),
-                      //onPressed: () {  },
+
                       child: const Text(
                         "Reset Password",
                         style: TextStyle(fontSize: 16),

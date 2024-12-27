@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pin_put/pin_put.dart';
 import 'package:tiptop_app/create_new_password.dart';
+import 'package:tiptop_app/widets/custom_elevatedbutton.dart';
 
 class VerifyAccount extends StatefulWidget {
   @override
@@ -59,9 +60,9 @@ class _VerifyAccountState extends State<VerifyAccount> {
               const Padding(
                 padding: EdgeInsets.only(top: 20),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween, // Use spaceBetween to push items to edges
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Expanded( // Use Expanded to take up available space
+                    Expanded(
                       child: Text.rich(
                         TextSpan(
                           text: "Didn't get the code?",
@@ -94,27 +95,6 @@ class _VerifyAccountState extends State<VerifyAccount> {
                   height: 45,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      foregroundColor: WidgetStateProperty.all<Color>(
-                          Colors.white),
-                      backgroundColor: WidgetStateProperty.all<Color>(
-                          Colors.black),
-                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                    // onPressed: () => Navigator.of(context)
-                    //     .push(MaterialPageRoute(builder: (context) => VerifyAccount())),
-                    onPressed: () => Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => CreateNewPassword())),
-                    child: const Text(
-                      "Verify Account",
-                      style: TextStyle(fontSize: 16),
-                    ),
                   ),
                 ),
               ),

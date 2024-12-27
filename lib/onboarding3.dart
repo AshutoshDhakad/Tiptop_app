@@ -29,94 +29,92 @@ class _OnBoarding3State extends State<OnBoarding3> {
           ),
 
           Container(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.black.withOpacity(0.1),
           ),
           // Content
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 50),
-                  child: SizedBox(
-                    height: 400,
-                    width: 300,
-                    child: Image.asset('assets/images/img_6.png',scale: 3,
-                    ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20, top: 50),
+                child: SizedBox(
+                  height: 400,
+                  width: 300,
+                  child: Image.asset('assets/images/img_6.png',scale: 3,
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 10, left: 20),
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'Daily tip ',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-
-                      ],
-                    ),
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 30, left: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start, // Aligns text to the start
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 10, left: 20),
+                child: Text.rich(
+                  TextSpan(
                     children: [
-                      Text(
-                        'Loren Ipsum is simply dummy text of the',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 12,
-                        ),
+                      TextSpan(
+                        text: 'Daily tip ',
+                        style: TextStyle(fontFamily: 'Roboto',fontWeight: FontWeight.bold, fontSize: 25),
                       ),
-                      Text(
-                        'print and typesetting industry',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 12,
-                        ),
-                      ),
+
                     ],
                   ),
                 ),
-
-
-                const SizedBox(
-                  height: 30,
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(top: 140, left: 12),
-                  child: Container(
-                    width: 340,
-                    height: 45,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10)
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 30, left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start, // Aligns text to the start
+                  children: [
+                    Text(
+                      'Loren Ipsum is simply dummy text of the',
+                      style: TextStyle(fontFamily: 'Roboto',
+                        color: Colors.black,
+                        fontSize: 12,
+                      ),
                     ),
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                          foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
-                          backgroundColor: WidgetStateProperty.all<Color>(Colors.black),
-                          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
+                    Text(
+                      'print and typesetting industry',
+                      style: TextStyle(fontFamily: 'Roboto',
+                        color: Colors.black,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
-                              )
-                          )
-                      ),
-                      onPressed: () => Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) =>  SelectLanguage())),
-                      child: Text(
-                          "Get Started".toUpperCase(),
-                          style:  const TextStyle(fontSize: 14)
-                      ),
+
+              const SizedBox(
+                height: 30,
+              ),
+
+              Padding(
+                padding: const EdgeInsets.only(top: 120, left: 12),
+                child: Container(
+                  width: 340,
+                  height: 45,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+                        backgroundColor: WidgetStateProperty.all<Color>(Colors.black),
+                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+
+                            )
+                        )
+                    ),
+                    onPressed: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) =>  SelectLanguage())),
+                    child: Text(
+                        "Get Started".toUpperCase(),
+                        style:  const TextStyle(fontSize: 14,fontFamily: 'Roboto',)
                     ),
                   ),
                 ),
-                  ]
-                  ),
+              ),
+                ]
                 )
 
               ],
