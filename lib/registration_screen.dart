@@ -63,22 +63,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
-
-                child: Material(
-                  elevation: 1,
-                  child: CustomTextfield(),
+                  child: CustomTextfield(hintText: "Full Name",
+                    validator:  (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter Your Name';
+                      }
+                      return null;
+                    },
+                   ),
                 ),
-              ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                    labelText: 'Enter email id',
-                    border: OutlineInputBorder(),
-                    // errorText: _validate ? "Value Can't Be Empty" : null,
-                  ),
-
+                child: CustomTextfield(
+                    hintText: "Email Id ",
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter your email';
@@ -87,7 +84,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   },
                   onSaved: (value) => _email = value!,
                 ),
-              ),
+                  ),
+
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: TextFormField(
@@ -360,10 +358,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                  ),
                 ),
                ]
+               ),
               ),
-             ),
-            ),
-          );
-  }
-
-}
+              ),
+             );
+           }
+          }

@@ -251,12 +251,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     ),
                     Padding(padding: const EdgeInsets.only(left: 20),
-
                     child: Card(
-
                       elevation: 3,
                       child: Container(
-
                         width: 50,
                         height: 50,
                         decoration: BoxDecoration(
@@ -272,22 +269,17 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              Padding(padding: const EdgeInsets.only(top: 90, left: 60),
+              Padding(padding: const EdgeInsets.only(top: 50, left: 60),
                 child:  Row(
                   children: [
                     const Center(
                        child: Text("Don't have an account?",
                        style: TextStyle(fontSize: 12),),
-
-
-                            // TextSpan(
-                            //   text: ' Register',
-                            //   style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.orange),
-                            // ),
                       ),
                     TextButton(
                       onPressed: () => Navigator.of(context)
                           .push(MaterialPageRoute(builder: (context) => RegistrationScreen())),
+
                       child: const Text("Register",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,

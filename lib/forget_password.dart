@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tiptop_app/verify_account.dart';
+import 'package:tiptop_app/widets/custom_textfield.dart';
+
 
 class ForgetPassword extends StatefulWidget {
   @override
   State<ForgetPassword> createState() => _ForgetPasswordState();
 }
-
 class _ForgetPasswordState extends State<ForgetPassword> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
+  String _email = 'tfg';
 
   @override
   Widget build(BuildContext context) {
@@ -45,22 +47,19 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     ),
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(top: 40),
-                child: TextFormField(
+                Padding(
+                  padding: const EdgeInsets.only(top: 40),
+                    child: CustomTextfield(hintText: "Email",
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "please enter your Email";
+                      }
+                      return null;
+                    },
+                      onSaved: (value) => _email = value!,
+                    ),
+                ),
 
-                  controller: _emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Enter email id',
-                    border: OutlineInputBorder(),
-                  ),
-                  // validator: (value) {
-                  //   if (value == null || value.isEmpty) {
-                  //     return 'enter your email';
-                  //   }
-                  //   return null;
-                  // },
-                ),
-                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 40),
                   child: Container(

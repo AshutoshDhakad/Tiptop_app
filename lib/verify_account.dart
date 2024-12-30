@@ -96,6 +96,13 @@ class _VerifyAccountState extends State<VerifyAccount> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                   ),
+
+                  child: CustomElevatedButton(
+                    buttonText: "Verify Account",
+                    functionApply: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => CreateNewPassword()),
+                    ),
+                  ),
                 ),
               ),
             ],
